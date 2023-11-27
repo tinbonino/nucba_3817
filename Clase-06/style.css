@@ -1,0 +1,77 @@
+.container {
+}
+
+.text-span {
+}
+
+/* overflow */
+.overflow-box {
+}
+
+.visible {
+}
+
+.hidden {
+}
+
+.scroll {
+}
+
+.auto {
+}
+
+/* Padding */
+.padding {
+}
+
+/* Border  */
+.border {
+}
+
+.dashed {
+}
+
+.dotted {
+}
+
+.double {
+}
+
+/* Border radius */
+.radius {
+}
+
+/* margin */
+.box {
+}
+
+.box:nth-child(2) {
+}
+
+.margin {
+}
+
+.block {
+}
+
+.mb {
+}
+
+.mt {
+}
+
+.inline {
+}
+
+/* positions */
+.relative {
+}
+
+.absolute-container {
+}
+
+.absolute {
+}
+
+.fixed {
+}
