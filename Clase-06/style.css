@@ -1,44 +1,85 @@
 .container {
+    background-color: black;
+    padding: 16px;
+    border-radius: 16px;
+    width: fit-content;
+    margin: 20px 0;
+
 }
 
 .text-span {
+    color: crimson;
+    font-size: 20px;
+    margin: 20px 0;
 }
 
 /* overflow */
 .overflow-box {
+    width: 100px;
+    height: 100px;
+    background-color: blueviolet;
+    border-radius: 1rem;
+
 }
 
 .visible {
+    overflow: visible;
 }
 
 .hidden {
+    overflow: hidden;
 }
 
 .scroll {
+    overflow: scroll;
 }
 
 .auto {
+    overflow: auto;
 }
 
 /* Padding */
 .padding {
+    /* padding: 20px 20px 40px 40px; */
+    padding-top: 20px;
+    padding-right: 20px;
+    padding-bottom: 40px;
+    padding-left: 40px;
+    border-radius: 1rem;
+    background-color: blueviolet;
 }
 
 /* Border  */
 .border {
+    border: 5px solid #8c54fb;
+    padding: 5px;
+    margin-bottom: 32px;
 }
 
 .dashed {
+    border: 5px dashed #8c54fb;
+    padding: 5px;
+    margin-bottom: 32px;
 }
+    
 
 .dotted {
+    border: 5px dotted #8c54fb;
+    padding: 5px;
+    margin-bottom: 32px;
 }
 
 .double {
+    border: 5px double #8c54fb;
+    padding: 5px;
+   
 }
 
 /* Border radius */
 .radius {
+    border-radius: 8px;
+    padding: 10px;
+    background-color: #8c54fb;
 }
 
 /* margin */
@@ -55,9 +96,11 @@
 }
 
 .mb {
+   
 }
 
 .mt {
+  
 }
 
 .inline {

@@ -58,86 +58,131 @@ h4 {
 }
 
 .vh {
+    height: 10vh;
+    background-color: blueviolet;
 }
 
 .vw {
+    width: 10vw;
+    background-color: blue;
 }
 
 .bg-color {
+    background-color: darkgoldenrod;
+   
 }
 
 .bg-img {
+    background-image: url("./img/bg-pattern.jpg");
+    background-position: center;
+    background-size: cover;
 }
 
 .bg-repeat {
+    background-image: url("./img/bg-repeat.png");
+    background-repeat:repeat;
 }
 
 .bg-attach {
+    background-image: url("./img/bg-pattern.jpg");
+    background-attachment: fixed;
 }
 
 .bg-position {
+    background-image: url("./img/bg-pattern.jpg");
+    background-size: contain;
+    background-position: center;
 }
 
 .bg-size {
+    background-image: url("./img/messi.webp");
+    background-position: center;
+    background-size: cover;
 }
 
 .color p {
+    color: darkkhaki;
+   
 }
 
 /* Box shadow */
 .caja-shadow{
+    background-color: aquamarine;
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
 }
 .offsetXY {
+    box-shadow: 10px 10px;
 }
 
 .blurRadius {
+    box-shadow: 10px 10px 5px;
 }
 
 .spreadRadius {
+    box-shadow: 10px 10px 5px 5px;
 }
 
 .color {
+    box-shadow: 10px 10px 5px 5px rgba(0,0,0,0.5);
+    
 }
 
 .inset {
+    box-shadow: inset 10px 10px 5px 5px rgba(0,0,0,0.5);
 }
 
 /* Tipografias */
 
 .font-fa p {
-
-
+    font-family: 'Dancing Script', cursive;
+}
 .font-we p {
+    font-weight: bold;
 }
 
 .font-style {
+    font-style: italic;
 }
 
 .font-size {
+    font-size: 2rem;
 }
 
 .letter-spacing {
+    letter-spacing:10px ;
 }
 
 .word-spacing {
+    word-spacing: 10px;
 }
 
 .line-height {
+    line-height: 55px;
 }
 
 .text-align {
+    text-align: center;
 }
 
 .text-transform {
+    text-transform: uppercase;
 }
 
 .text-decoration {
+    text-decoration: underline;
 }
 
 /* Listas */
 
 .list-position {
+    list-style-type: circle;
+    list-style-position: outside;
 }
 
 .list-img {
+    list-style-image: url("./img/messi-list-img.jpg");
+    list-style-position: inside;
+
 }
