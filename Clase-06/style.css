@@ -84,37 +84,70 @@
 
 /* margin */
 .box {
-}
+    width: 100px;
+    height: 100px;
+    background-color: #8c54fb;
+    border-radius: 1rem;
 
-.box:nth-child(2) {
+    
+}
+.box:nth-child(3) {
+    background-color: red;
+    
 }
 
 .margin {
+    margin: 20px 20px 40px 40px;
+   
 }
 
 .block {
+    border: 1px solid #8c54fb;
+    border-radius: 0.5;
+    padding: 1rem;
 }
 
 .mb {
+    margin-bottom: 1rem;
    
 }
 
 .mt {
+    margin-top: 3rem;
   
 }
 
 .inline {
+    border: 1px solid red;
+    margin: 2rem 0rem;
+    padding: 1rem;
+    border-radius: 0.4rem;
 }
 
 /* positions */
 .relative {
+    position: relative;
+    left: 100px;
+
 }
 
 .absolute-container {
+    background-color:#282828;
+    border-radius: 16px;
+    margin: 20px 0;
+    height: 100px;
+    width: 100px;    ;
+    position: relative;
 }
 
 .absolute {
+    position: absolute;
+    left: 20px;
+    bottom: 10px;
 }
 
 .fixed {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
 }

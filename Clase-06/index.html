@@ -121,13 +121,16 @@
     <h2>Margin</h2>
 
     <div class="code">
-      margin: 20px 20px 40px 40px; - (Arriba, Derecha, Abajo, Izquierda)
+      <p>margin: 20px 20px 40px 40px; - (Arriba, Derecha, Abajo, Izquierda)</p>
     </div>
 
-    <div class="container">
-      
-    </div>
     
+    <div class="container">
+      <div class="box margin"></div>
+      <div class="box margin"></div>
+      <div class="box margin"></div>
+      <div class="box margin"></div>
+    </div>
 
 
 
@@ -137,6 +140,9 @@
     <h2>En Bloque</h2>
     <p class="block">Un p es una etiqueta de bloque por ejemplo</p>
     <h2 class="mb">En Linea</h2>
+
+    <a href="#" class="inline">Una etiqueta a es inline</a>
+    <a href="#" class="inline">Si tenemos otra etiqueta en linea se posiciona a su lado</a>
 
    
 
@@ -148,7 +154,9 @@
     <h2>Position</h2>
     <span class="text-span">👉 static (Posición por defecto)</span>
     
-
+    <div class="container">
+      <div class="box"></div>
+    </div>
 
 
 
@@ -156,14 +164,21 @@
       >👉 relative (relativo a su posición por defecto)</span
     >
    
+    <div class="container">
+      <div class="box relative"></div>
+    </div>
 
-
+      
 
 
     <span class="text-span"
       >👉 absolute (relativo a la posición del elemento mas cercano con
       position)
     </span>
+
+    <div class="absolute-container">
+      <div class="box absolute"></div>
+    </div>
    
 
 
@@ -171,7 +186,9 @@
 
     <span class="text-span">👉 fixed (relativo al viewport)</span>
    
-
+    <div class="container">
+      <div class="box fixed"></div>
+    </div>
 
     
     <span class="text-span"

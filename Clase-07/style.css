@@ -1,0 +1,273 @@
+/* Estilos de la clase */
+.container {
+    background-color:#282828 ;
+    padding: 10px;
+    border-radius: 16px;
+    margin: 20px 0;
+}
+
+.text-span {
+    color: red;
+    font-size: 20px;
+    margin: 20px 0;
+}
+
+/* Cajas que vamos a usar para los ejemplos de clase*/
+.caja-flex {
+    background-color: blueviolet;
+    width: 100px;
+    height: 100px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1rem;
+  
+}
+
+.caja-flex:nth-child(2) {
+}
+/*Flex-direction*/
+
+.row {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.reverse {
+    flex-direction: row-reverse;
+   
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.col-reverse {
+    flex-direction: column-reverse;
+}
+
+.wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    max-width: 250px;
+    
+}
+
+.no-wrap {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 10px;
+    max-width: 250px;
+}
+
+.flow {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 10px;
+    max-width: 250px;
+}
+
+.jc-start {
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+}
+
+.jc-end {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.jc-center {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.jc-between {
+    display: flex;
+    justify-content: space-between;
+    
+}
+.jc-around {
+    display: flex;
+    justify-content: space-around;
+   
+}
+
+.jc-evenly {
+    display: flex;
+    justify-content: space-evenly;
+    
+}
+
+/* align items */
+
+.column-container {
+    min-height: 300px;
+    background-color:#282828 ;
+    padding: 16px;
+    border-radius: 16px;
+    margin: 20px 0;
+}
+
+.ai-start {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.ai-end {
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+}
+
+.ai-center {
+    display: flex;
+    align-items:first center;
+    gap: 10px;
+}
+
+.ai-stretch {
+    display: flex;
+    align-items:stretch;
+    gap: 10px;
+}
+
+.caja-flex-stretch {
+    background-color: red;
+    width: 100px;
+    border-radius: 1rem;
+    padding: 1rem;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ai-baseline {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+}
+
+.caja-flex-baseline {
+    width: 100px;
+    border-radius: 1rem;
+    padding: 1rem;
+
+}
+
+.baseline-1 {
+    padding-top: 30px;
+    background-color: yellow;
+}
+.baseline-2 {
+    padding-top: 100px;
+    background-color: chocolate;
+}
+.baseline-3 {
+    padding-top: 50px;
+    background-color: aquamarine;
+}
+
+/* align content */
+
+.ac-container {
+
+    height: 350px;
+    background-color: #282828;
+    border-radius: 1rem;
+    padding: 1rem;
+    max-width: 350px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin: 1rem 0;
+}
+
+.ac-start {
+    align-content: flex-start;
+}
+
+.ac-end {
+    align-content: flex-end;
+}
+
+.ac-center {
+    align-content: center;
+}
+
+.ac-between {
+    align-content: space-between;
+}
+
+.ac-around {
+    align-content: space-around;
+}
+
+.ac-stretch {
+    align-content: stretch;
+}
+
+.caja-stretch {
+}
+
+.flex {
+}
+
+/* order */
+.order-1 {
+}
+.order-2 {
+}
+.order-3 {
+}
+
+/* Grow */
+.grow-1 {
+}
+
+/* shrink */
+.shrink {
+}
+
+.contenedor-shrink {
+}
+
+.shrink-1 {
+}
+.shrink-2 {
+}
+.shrink-3 {
+}
+
+/* basis */
+.basis {
+}
+
+.basis-1 {
+}
+.basis-2 {
+}
+
+.basis-3 {
+}
+
+/* align-self */
+.self {
+}
+
+.self-1 {
+}
+
+.self-2 {
+}
+
+.self-3 {
+}
