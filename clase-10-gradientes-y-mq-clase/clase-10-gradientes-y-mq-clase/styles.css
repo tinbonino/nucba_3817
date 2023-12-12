@@ -1,0 +1,148 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800&display=swap");
+
+:root {
+  /* bg colors */
+  --black: #02050e;
+  --grey: #272d37;
+  --white: #f0fbff;
+  --blue: #0c1221;
+  --red: #b21c05;
+  --green: #168208;
+  --yellow: #ffff00;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  text-decoration: none;
+  list-style-type: none;
+}
+
+body {
+  background-color: var(--black);
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  height: 90%;
+  width: 90%;
+  background-color: var(--grey);
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.caja {
+  width: 200px;
+  height: 200px;
+  background: var(--blue);
+  color: var(--white);
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* .caja1 {
+  /* background: radial-gradient(black,pink); */
+  /* background: linear-gradient(45deg,green,crimson); */
+  
+  /* background: repeating-linear-gradient(yellow,rgba(255,29,0,0.8) 50px); */
+/* } */
+
+/* .caja2 {
+  background: linear-gradient(to right,white,red);
+  color: transparent;
+  background-clip: text;
+} */
+
+/* .caja3 {
+  background: linear-gradient(to right,yellow,black);
+} */
+
+/* .caja3 span {
+  background: linear-gradient(to right,purple,orange);
+  color: transparent;
+  background-clip: text;
+} */
+
+
+@media (max-width:1200px) {
+
+  body {
+    background-color: var(--grey);
+  }
+
+  .container {
+    background-color: var(--black);
+  }
+
+  .caja {
+    background-color: var(--white);
+    color: var(--black);
+    font-size: 16px;
+  }
+
+
+}
+
+@media (max-width:992px){
+
+  .container {
+    flex-direction: column;
+    justify-content: center;
+    gap: 50px;
+  }
+
+}
+
+@media (max-width:768px) {
+  .caja {
+    background-color: yellow;
+    
+  }
+
+  .caja1 {
+    border-radius: 0;
+  }
+
+  .caja2 {
+    border-radius: 90px;
+  }
+
+  .caja3 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 26px;
+  }
+}
+
+@media (max-width:576px) {
+  .container {
+    width: 100%;
+    height: 100vh;
+    background-color: var(--green);
+  }
+
+  .caja {
+    background-color: var(--red);
+    color: var(--white);
+    font-size: 50px;
+    border: 2px dashed var(--yellow);
+  }
+
+  .caja1 {
+    justify-content: flex-start;
+    padding-left: 30px;
+  }
+
+  .caja2 {
+    display: none;
+  }
+}
