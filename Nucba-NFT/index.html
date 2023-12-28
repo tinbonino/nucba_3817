@@ -6,6 +6,11 @@
   <title>Nucba NFT</title>
   <link rel="stylesheet" href="./assets/styles.css">
   <link rel="stylesheet" href="./assets/mediaqueries.css">
+  <link rel="stylesheet" href="./assets/animaciones.css">
+<!-- Linkeamos a font awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+    integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <header>
@@ -18,14 +23,15 @@
           <input type="checkbox" id="menu-toggle">
 
           <ul class="navbar-list">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Descubre</a></li>
-            <li><a href="#">BTC</a></li>
-            <li><a href="#">Youtube</a></li>
-            <li><a href="#">Contáctanos</a></li>
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#discover">Descubre</a></li>
+            <li><a href="#products">BTC</a></li>
+            <li><a href="https://www.youtube.com/c/Nucbaok" target="_blank">Youtube</a></li>
+            <li><a href="https://nucba.com.ar/" target="_blank">Contáctanos</a></li>
           </ul>
           <label for="cart-toggle">
-            <img class="cart-icon" src="./assets/img/cart-icon.svg" alt="">
+            <!-- <img class="cart-icon" src="./assets/img/cart-icon.svg" alt=""> -->
+            <i class="fa-solid fa-cart-shopping cart-icon"></i>
           </label>
           <input type="checkbox" id="cart-toggle">
           <div class="cart">
@@ -104,15 +110,15 @@
             </div>
   
             <button class="btn-add">Comprar</button>
-  
           </div>
+          <div class="overlay"></div>
         </nav>
     </header>
 
     <main>
         <section id="hero">
           <div class="hero-info">
-            <h1>Descubre la nueva era de Crypto</h1>
+            <h1>Descubre la nueva era de <span> Crypto</span></h1>
             <p>
               NUCBA NFT es el primer Marketplace educativo tecnológico de NFT, que
           son elementos digitales épicos que realmente puedes poseer. Los

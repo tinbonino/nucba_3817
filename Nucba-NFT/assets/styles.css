@@ -54,6 +54,16 @@ header {
     display: none;
 }
 
+.cart-icon {
+    font-weight: 600;
+    color: var(--text-white);
+    border-radius: 10px;
+    margin-right: 1rem;
+    /* margin-top: 2rem; */
+    font-size: 18px;
+    cursor: pointer;
+}
+
 .cart {
     position: absolute;
     top: 65px;
@@ -66,8 +76,10 @@ header {
     gap: 30px;
     height: calc(100vh - 65px);
     overflow-y: scroll;
-    z-index: 2;
-    display: none;
+    z-index: 3;
+    /* display: none; */
+    transform: translate(200%);
+    transition: all 0.5s cubic-bezier(0.92, 0.01, 0.35, 0.99);
 }
 
 .cart::-webkit-scrollbar {
@@ -175,7 +187,8 @@ header {
 }
 
 #cart-toggle:checked +.cart{
-    display: flex;
+    transform: translate(0%);
+    transition: all 0.5s cubic-bezier(0.92, 0.01, 0.35, 0.99);
 }
 
 .logo {
@@ -191,6 +204,7 @@ header {
 
 .navbar {
     gap: 150px;
+    z-index: 2;
 }
 
 .navbar-list {
