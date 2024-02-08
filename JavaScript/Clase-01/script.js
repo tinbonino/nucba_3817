@@ -16,6 +16,7 @@
 var numero1=parseInt(prompt("Ingrese número")); //siempre devuelve un string
 var numero2=parseInt(prompt("Ingrese otro número"));
 
+
 var suma=numero1+numero2;
 var resta=numero1-numero2;
 var multiplicacion=numero1*numero2;
