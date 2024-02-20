@@ -1,4 +1,4 @@
-// funcion que lmacena el nombre
+// funcion que almacena el nombre
 
 function nombreJugador(){
     let nombre=prompt("Ingrese su nombre");
@@ -7,7 +7,7 @@ function nombreJugador(){
 
 //funcion que almacena la jugada
 function jugada(nombre){
-
+    
     let eleccion=prompt("Ingrese su jugada: 1-Piedra, 2-Papel, 3-Tijera");
     console.log("--------------------------------------------");
     console.log(nombre+": "+eleccion);
@@ -19,11 +19,11 @@ function jugada(nombre){
 function ganador(jugador1,jugador2,jugada1,jugada2){
     
     if((jugada1==1&&jugada2==3)||(jugada1==2&&jugada2==1)||(jugada1==3&&jugada2==2)){
-    //     true         true            false       false            false    true
-    //           true                         false                        false
-    
-    console.log(jugador1+" ha ganado la partida!");
-    
+        //     true         true            false       false            false    true
+        //           true                         false                        false
+        
+        console.log(jugador1+" ha ganado la partida!");
+        
     } else if(jugada1==jugada2){
         console.log("El resultado ha sido empate");
     } else {
