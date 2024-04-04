@@ -1,0 +1,38 @@
+body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+h1 {
+    color: blueviolet;
+}
+
+header {
+    display: flex;
+    justify-content: space-around;
+}
+
+#taskList {
+    list-style: none;
+    padding: 0;
+}
+
+.dark {
+    color: white;
+    background-color: black;
+}
+
+.task {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.task.completed {
+    background-color: blueviolet;
+}
+
+.task button {
+    margin-left: auto;
+    cursor: pointer;
+}
