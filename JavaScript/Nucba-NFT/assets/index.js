@@ -32,7 +32,9 @@ const deleteBtn = document.querySelector(".btn-delete");
 // Seteamos el carrito , vacío o lo que este en el localStorage según corresponda, igual que en los proyectos anteriores
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-//Función para guardar el carrito en el localStorage
+/**
+ * Función para guardar el carrito en el localStorage
+ */
 const saveCart = () => {
   localStorage.setItem("cart", JSON.stringify(cart));
 };
@@ -319,3 +321,249 @@ const renderCart = () => {
 const getCartTotal = () => {
   return cart.reduce((acc, cur) => acc + Number(cur.bid) * cur.quantity, 0);
 };
+
+/**
+ * Función para mostrar el total de la compra
+ * Se utiliza el método "toFixed" para que el total tenga solo 2 decimales
+ */
+const showCartTotal = () => {
+  total.innerHTML = `${getCartTotal().toFixed(2)} eTH`;
+};
+
+
+/**
+ * Función para actualizar la burbuja de cantidad con el número de productos en el carrito
+ */
+
+const renderCartBubble = () => {
+  cartBubble.textContent = cart.reduce((acc,cur) => acc+cur.quantity,0);
+};
+
+/**
+ * Función para habilitar o deshabilitar un botón segun corresponda
+ * @param {object} btn Botón que se quiere deshabilitar
+ */
+
+const disableBtn = (btn) => {
+  if (!cart.length){
+    btn.classList.add("disabled");
+  } else {
+    btn.classList.remove("disabled");
+  }
+}
+
+/**
+ * Función que ejecuta las funciones necesarias para actualizar el estado del carrito. Esto incluye renderizar los productos del carrito, mostrar el total de la compra, deshabilitar el botón de comprar y el botón de eliminar si corresponde y actualizar la burbuja de cantidad.
+ * La creamos ya que todas esas funciones las vamos a necesitar en distintos momentos, por lo que es más práctico tenerlas todas juntas en una sola función.
+ */
+
+const updateCartState = () => {
+  saveCart();
+  renderCart();
+  showCartTotal();
+  disableBtn(buyBtn);
+  disableBtn(deleteBtn);
+  renderCartBubble();
+};
+
+/**
+ * Función para crear un objeto con la información del producto que se quiere agregar al carrito o bien agregar una unidad a un producto que ya este en el carrito.
+ * Se tomará la data del producto del dataset del botón clickeado para crear el objeto del producto.
+ * Si el producto ya existe en el carrito, se le suma una unidad y se muestra el modal con el mensaje correspondiente.
+ * Si el producto no existe en el carrito, se agrega al array del carrito agregandole la propiedad quantity y se muestra el modal con el mensaje correspondiente.
+ * @param {event} e evento click
+ */
+
+const addProduct = (e) => {
+  if (!e.target.classList.contains("btn-add")) return;
+  const product= createProductData(e.target.dataset);
+  if(isExistingCartProduct(product)) {
+    addUnitToProduct(product);
+    showSuccessModal("Se agregó una unidad del producto al carrito");
+  } else{
+    createCartProduct(product);
+    showSuccessModal("El producto se ha agregado re piola");
+  }
+  updateCartState();
+};
+
+/**
+ * Función para agregar una unidad a un producto que ya este en el carrito.
+ * Se recorre el array del carrito y se busca el producto que se quiere agregar una unidad.
+ * Si el producto pasado como parámetro es igual al producto que se está recorriendo, se le suma una unidad a la propiedad "quantity" y se actualiza el array del carrito. Si eso no ocurre, se retorna el producto que se esta recorriendo tal cual está.
+ * @param {object} product Objeto con la información del producto que se quiere agregar una unidad al carrito
+ */
+
+const addUnitToProduct = (product) => {
+  cart = cart.map((cartProduct)=>
+    cartProduct.id===product.id 
+    ? {...cartProduct,quantity: cartProduct.quantity+1}
+    : cartProduct
+  );
+  
+};
+
+/**
+ * Función para crear un objeto con la información del producto que se quiere agregar al carrito.
+ * @param {object} product Objeto con la información del producto que se quiere agregar al carrito
+ */
+
+const createCartProduct = (product) => {
+  cart=[...cart,{...product,quantity:1}]
+};
+
+/**
+ * Función para saber si un producto ya existe en el carrito.
+ * @param {object} product  Objeto con la información del producto que se quiere agregar al carrito
+ * @returns {object} Objeto con la información del producto que se quiere agregar al carrito. Undefined en caso de que no exista.
+ */
+
+const isExistingCartProduct = (product) => {
+  return cart.find((item) => item.id===product.id) 
+}
+
+/**
+ * Función para crear un objeto con la información del producto que se quiere crear en el carrito.
+ * @param {object} product data del producto a crear o a agregar una unidad.
+ * @returns {object} Objeto con la data del producto.
+ */
+
+const createProductData= (product) => {
+  const {id,name,bid,img} = product;
+  return {id,name,bid,img};
+};
+
+/**
+ * Función para mostrar el modal de éxito al agregar o añadir un producto.
+ * @param {string} msg  Mensaje que se quiere mostrar en el modal
+ */
+
+const showSuccessModal = (msg) => {
+  successModal.classList.add("active-modal");
+  successModal.textContent=msg;
+  setTimeout(() => {
+    successModal.classList.remove("active-modal")
+  },1500) //se mide en milisegundos. Es un segundo y medio
+};
+
+/**
+ * Función para manejar el evento click del botón de más de cada producto del carrito.
+ * @param {string} id Id del producto que se quiere agregar una unidad al carrito
+ */
+
+const handlePlusBtnEvent = (id) => {
+  const existingCartProduct= cart.find((item) => item.id==id);
+  addUnitToProduct(existingCartProduct);
+};
+
+/**
+ * Función para manejar el evento click del botón de menos de cada producto del carrito.
+ * @param {string} id Id del producto que se quiere eliminar una unidad al carrito
+ */
+
+const handleMinusBtnEvent= (id) => {
+  const existingCartProduct=cart.find((item) => item.id==id)
+
+  if(existingCartProduct.quantity===1){
+    if(window.confirm("¿Desea Eliminar el producto del carrito?")) {
+      removeProductFromCart(existingCartProduct);
+    }
+    return;
+  }
+  substractProductUnit(existingCartProduct);
+};
+
+/**
+ * Función para quitar una unidad de producto.
+ * Se recorre el array del carrito y se busca el producto que se quiere eliminar una unidad. Si el producto pasado como parámetro es igual al producto que se está recorriendo, se le resta una unidad a la propiedad "quantity" y se actualiza el array del carrito. Si eso no ocurre, se retorna el producto que se esta recorriendo tal cual está.
+ * @param {object} existingProduct Objeto con la información del producto que se quiere eliminar una unidad al carrito
+ */
+
+const substractProductUnit= (existingProduct) => {
+  cart=cart.map((product) => {
+    return product.id===existingProduct.id
+    ? {...product,quantity: Number(product.quantity)-1}
+    : product;
+  });
+};
+
+/**
+ * Función para eliminar un producto del carrito.
+ * @param {object} existingProduct Objeto con la información del producto que se quiere eliminar del carrito
+ */
+
+const removeProductFromCart =(existingProduct) => {
+  cart=cart.filter((product) => product.id!==existingProduct.id);
+  updateCartState();
+};
+
+/**
+ * Función que maneja los eventos de apretar el botón de más o de menos según corresponda.
+ * @param {event} e evento click
+ */
+
+const handleQuantity= (e) => {
+  if(e.target.classList.contains("down")) {
+    handleMinusBtnEvent(e.target.dataset.id);
+  } else if (e.target.classList.contains("up")){
+    handlePlusBtnEvent(e.target.dataset.id);
+  }
+  updateCartState();
+}
+
+/**
+ * Función para vaciar el carrito.
+ */
+
+const resetCartItems = () => {
+  cart =[];
+  updateCartState();
+};
+
+/**
+ * Función para completar la compra o vaciar el carrito.
+ * @param {string} confirmMsg   Mensaje de pregunta para confirmar la acción.
+ * @param {*} successMsg   Mensaje de éxito para mostrar al completar la acción.
+ */
+
+const completeCartAction = (confirmMsg,successMsg) => {
+  if(!cart.length) return;
+  if(window.confirm(confirmMsg)){
+    resetCartItems();
+    alert(successMsg);
+  }
+};
+
+/**
+ * Función para disparar el mensaje de compra exitosa y su posterior mensaje de exito en caso de darse la confirmación.
+ */
+
+const completeBuy = () => {
+  completeCartAction("¿Desea completar su compra?","Gracias por su compra");
+};
+
+const deleteCart = () => {
+  completeCartAction("¿Desea vaciar el carrito?","No hay mas productos en el carrito")
+}
+
+const init = () => {
+  renderProducts(appState.products[0]);
+  showMoreBtn.addEventListener("click", showMoreProducts);
+  categoriesContainer.addEventListener("click", applyFilter);
+  cartBtn.addEventListener("click", toggleCart);
+  menuBtn.addEventListener("click", toggleMenu);
+  window.addEventListener("scroll", closeOnScroll);
+  barsMenu.addEventListener("click", closeOnClick);
+  overlay.addEventListener("click", closeOnOverlayClick);
+  document.addEventListener("DOMContentLoaded", renderCart);
+  document.addEventListener("DOMContentLoaded", showCartTotal);
+  productsContainer.addEventListener("click", addProduct);
+  productsCart.addEventListener("click", handleQuantity);
+  buyBtn.addEventListener("click", completeBuy);
+  deleteBtn.addEventListener("click", deleteCart);
+  disableBtn(buyBtn);
+  disableBtn(deleteBtn);
+  renderCartBubble(cart);
+};
+
+init();
