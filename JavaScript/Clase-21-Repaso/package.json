@@ -1,0 +1,19 @@
+{
+  "name": "clase-21-repaso",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^5.0.8"
+  },
+  "dependencies": {
+    "sweetalert2": "^11.10.8",
+    "tippy.js": "^6.3.7",
+    "toastify-js": "^1.12.0"
+  }
+}
