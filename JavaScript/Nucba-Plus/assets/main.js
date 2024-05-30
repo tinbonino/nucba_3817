@@ -15,8 +15,8 @@ const ImgBaseUrl = "https://image.tmdb.org/t/p/original";
 // Creamos un objeto que funcionará como estado
 
 const appState = {
-    page:null, 
-    total:null, 
+    page:null,  // pagina actual
+    total:null, // total de paginas
     searchParameter: TRENDING
 };
 
@@ -155,9 +155,131 @@ const renderCards =(movies) => {
   .join("");
 };
 
+/*----------------------------------------------------------------------*/
+/*--------------------------Cambiar Pagina-----------------------------*/
+/*---------------------------------------------------------------------*/
+
+/**
+ * Función para cambiar de página hacia adelante. Si no es la última página, se aumenta el número de página en el estado y se hace la llamada a la API con changePage().
+ */
+
+const nextPage = () => {
+  if(appState.page === appState.total) return;
+
+  appState.page+=1;
+  changePage();
+}
+
+/**
+ * Función para cambiar de página hacia atrás. Si no es la primera página, se disminuye el número de página en el estado y se hace la llamada a la API con changePage().
+ */
+
+const previousPage = () => {
+  if(appState.page===1) return;
+  appState.page -=1;
+  changePage();
+};
+
+/**
+ * Función para cambiar de página. Se renderiza el loader, se hace la llamada a la API con fetchMovies(), se actualiza el estado de la paginación con setPaginationState() y se renderizan las cards con loadAndShow().
+ */
+
+const changePage = async () => {
+  cardsContainer.innerHTML=renderLoader();
+  const movies = await fetchMovies(appState.searchParameter,appState.page);
+  setPaginationState();
+  loadAndShow(movies);
+}
+
+/**
+ * Función para renderizar las cards dando un efecto de carga,user setTimeout para simular el tiempo de carga.
+ * @param {object[]} movies Array de películas
+ */
+
+const loadAndShow = (movies) => {
+  setTimeout(() => {
+    renderCards(movies.results);
+    filterContainer.scrollIntoView({
+      behavior:"smooth"
+    })
+  },1500);
+}
+
+
+/*----------------------------------------------------------------------*/
+/*------------------------- Cambiar categoría --------------------------*/
+/*---------------------------------------------------------------------*/
+
+/**
+ * Función para cambiar el parámetro de búsqueda para el estado de la página.
+   1- Solo se ejecuta si el elemento clickeado es un botón de categoría y si no está activo.
+   2- Se trae el data-filter del elemento apretado (revisar el html) y se setea el searchParameter del estado con el resultado de la función parameterSelector.
+   3- Se llama a la función setActiveButton() para activar el botón clickeado y desactivar el resto.
+   4- Se hará una nueva llamada a la API con showMovies(), basado en el nuevo searchParameter del estado de la página.
+ * @param {event} e  
+ */
+
+   const changeSearchParameter = (e) => {
+    console.log("click")
+    if (!isActiveCategoryBtn(e.target)) return;
+    const selectedParameter= e.target.dataset.filter;
+    appState.searchParameter = parameterSelector(selectedParameter);
+    setActiveButton(selectedParameter);
+    showMovies();
+   };
+
+   /**
+ * Función para verificar si el elemento clickeado es un botón de categoría y si está activo.
+ * @param {object} btn elemento del dom clickeado
+ * @returns
+ */
+
+   const isActiveCategoryBtn = (btn) => {
+     return (
+        btn.classList.contains("btn") && !btn.classList.contains("btn--active")
+     );
+   };
+
+   /**
+ * Función para seleccionar la categoría de búsqueda según el data-filter de los botones, que serán strings.
+ * @param {string} filterType   Tipo de filtro seleccionado
+ * @returns  parámetro de búsqueda según el filtro seleccionado
+ */
+
+   const parameterSelector= (filterType) => {
+    return filterType === "TOPRATED" 
+      ? TOPRATED 
+      : filterType === "UPCOMING" 
+      ? UPCOMING 
+      : TRENDING;
+     
+   };
+
+/**
+ * Función para activar el botón clickeado y desactivar el resto.
+ * Utilizamos el spread operator para convertir el NodeList en un array y poder usar el método forEach.
+ * @param {string} selectedParameter parámetro de búsqueda seleccionado
+ */
+
+const setActiveButton = (selectedParameter) => {
+  console.log(selectedParameter);
+  const buttons= [...filterButtons];
+  buttons.forEach((btn) => {
+    if(btn.dataset.filter !== selectedParameter) {
+      btn.classList.remove("btn--active");
+    } else {
+      btn.classList.add("btn--active")
+    }
+  })
+  
+}
+
 
 const init = () => {
   window.addEventListener("DOMContentLoaded",showMovies);
+  nextBTN.addEventListener("click",nextPage);
+  prevBTN.addEventListener("click",previousPage);
+  filterContainer.addEventListener("click", changeSearchParameter)
 };
 
 init()
