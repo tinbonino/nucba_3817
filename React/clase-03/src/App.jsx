@@ -5,6 +5,7 @@ import EjemploEnLinea from './components/EjemploEnLinea/EjemploEnLinea'
 import EjemploModule from './components/EjemploModule/EjemploModule'
 import EjemploModule2 from "./components/EjemploModule2/EjemploModule2"
 import EjemploStyled from './components/EjemploStyled/EjemploStyled.jsx'
+import EjemploMaterialUi from './components/EjemploMaterialUi/EjemploMaterialUi.jsx'
 function App() {
   
 
@@ -18,6 +19,7 @@ function App() {
         <EjemploModule/>
         <EjemploModule2/>
         <EjemploStyled/>
+        <EjemploMaterialUi/>
       </AppWrapper>
     </>
   )
