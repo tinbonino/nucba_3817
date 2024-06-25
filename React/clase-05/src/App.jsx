@@ -15,10 +15,11 @@ function App() {
   return (
     <>
      <Envoltorio>
-        <EjemploUseState/>
+        <EjemploUseEffect/>
+        {/* <EjemploUseState/>
         <EjemploUseRef/>
         <EjemploOnChange/>
-        <EjemploOnSubmit/>
+        <EjemploOnSubmit/> */}
      </Envoltorio>
     </>
   )
