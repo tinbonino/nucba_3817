@@ -1,5 +1,6 @@
 import { Outlet, Link } from "react-router-dom"
-function Layout() {
+import Mayor from "./Mayor"
+function Layout({setAuth}) {
   return (
     <>
         <nav>
@@ -12,6 +13,9 @@ function Layout() {
                 </li>
                 <li>
                     <Link to="productos">Productos</Link>
+                </li>
+                <li>
+                    <Mayor setAuth={setAuth}/>
                 </li>
             </ul>
         </nav>

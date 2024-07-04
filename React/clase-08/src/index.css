@@ -34,3 +34,8 @@ a {
 a:hover {
   color: yellow;
 }
+
+.boton {
+  cursor:pointer;
+  color: yellow
+}
