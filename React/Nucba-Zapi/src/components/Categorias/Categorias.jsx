@@ -1,13 +1,15 @@
-import {Categories} from "../../data/Categories";
+import { useSelector } from "react-redux";
+// import { Categories } from "../../data/Categories";
 import Categoria from "./Categoria";
 import { CategoriasContainer } from "./CategoriasStyles";
 
 const Categorias = () => {
+  const { categories } = useSelector((state) => state.categories);
   return (
     <CategoriasContainer>
-     {Categories.map(category=>(
-      <Categoria key={category.id} {...category} />
-     ))}
+      {categories.map((category) => (
+        <Categoria key={category.id} {...category} />
+      ))}
     </CategoriasContainer>
   );
 };

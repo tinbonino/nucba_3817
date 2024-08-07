@@ -20,6 +20,7 @@ function Routes() {
       <Route path="/resumen/:orderId" element={<Resumen />} />
 
       <Route path="/checkout" element={<Checkout />} />
+
       <Route path="*" element={<PageNotFound />} />
     </ReactDomRoutes>
   );

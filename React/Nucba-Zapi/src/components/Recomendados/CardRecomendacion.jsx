@@ -11,13 +11,10 @@ import {
   InfoCard,
 } from "./CardsRecomendacionStyled";
 
-const CardRecomendacion = ({title,img,price,desc}) => {
+const CardRecomendacion = ({ title, img, price, desc }) => {
   return (
     <Card>
-      <CardImg
-        src={img}
-        alt={title}
-      />
+      <CardImg src={img} alt={title} />
       <CardText>
         <CardTitle>{title}</CardTitle>
         <InfoCard>{desc}</InfoCard>
