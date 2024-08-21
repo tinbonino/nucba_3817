@@ -5,18 +5,20 @@ import storage from "redux-persist/lib/storage";
 import categoriesReducer from "./categories/categoriesSlice";
 import productsReducer from "./products/productsSlice";
 import recommendedReducer from "./recommended/recommendedSlice";
+import cartReducer from "./cart/cartSlice";
 //npm install @reduxjs/toolkit 
 //npm install redux-persist
 const reducers = combineReducers({
   recommended: recommendedReducer,
   categories: categoriesReducer,
   products: productsReducer,
+  cart: cartReducer
 });
 
 const persistConfig = {
   key: "root",
   storage,
-  whitelist: [],
+  whitelist: ["cart"],
 };
 
 const persistedReducer = persistReducer(persistConfig, reducers);
