@@ -1,18 +1,21 @@
+import {
+  checkoutInitialValues,
+  checkoutValidationSchema,
+} from "../../../formik";
+
 import Input from "../../UI/Input/Input";
 import Submit from "../../UI/Submit/Submit";
 
-import { checkoutInitialValues, checkoutValidationSchema } from "../../../formik";
-
 import { CheckoutDatosStyled, Form, Formik } from "./CheckoutFormStyles";
 
-const CheckoutForm = ({cartItems}) => {
+const CheckoutForm = ({ cartItems }) => {
   return (
     <CheckoutDatosStyled>
       <h2>Ingresá tus datos</h2>
       <Formik
-      initialValues={checkoutInitialValues}
-      validationSchema={checkoutValidationSchema}
-      onSubmit={(values)=>console.log(values)}
+        initialValues={checkoutInitialValues}
+        validationSchema={checkoutValidationSchema}
+        onSubmit={(values) => console.log(values)}
       >
         <Form>
           <Input

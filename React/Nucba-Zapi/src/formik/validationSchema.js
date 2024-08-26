@@ -1,8 +1,8 @@
-import * as Yup from "yup";
+import * as Yup from 'yup';
 
 export const checkoutValidationSchema = Yup.object({
-    name: Yup.string().required("El campo es obligatorio"),
-    cellphone: Yup.string().required("El campo es obligatorio"),
-    location: Yup.string().required("El campo es obligatorio"),
-    address: Yup.string().required("El campo es obligatorio"),
+  name: Yup.string().required('Campo Requerido'),
+  cellphone: Yup.string().required('Campo Requerido'),
+  location: Yup.string().required('Campo Requerido'),
+  address: Yup.string().required('Campo Requerido'),
 });
