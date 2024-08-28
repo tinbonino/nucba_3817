@@ -7,6 +7,7 @@ import productsReducer from "./products/productsSlice";
 import recommendedReducer from "./recommended/recommendedSlice";
 import cartReducer from "./cart/cartSlice";
 import userReducer from "./user/userSlice";
+import ordersReducer from "./orders/ordersSlice";
 //npm install @reduxjs/toolkit 
 //npm install redux-persist
 const reducers = combineReducers({
@@ -14,7 +15,8 @@ const reducers = combineReducers({
   categories: categoriesReducer,
   products: productsReducer,
   cart: cartReducer,
-  user: userReducer
+  user: userReducer,
+  orders:ordersReducer
 });
 
 const persistConfig = {
