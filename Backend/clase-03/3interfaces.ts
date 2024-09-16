@@ -29,9 +29,11 @@ class Producto implements Producto {
 
 let producto1 = new Producto(1,"empanada",1500,true);
 let producto2 = new Producto(2,"pizza",7500,true);
+let producto3 = new Producto(3,"hamburguesa",15000,false);
 
 console.log(producto1.calcularDescuento(50))
 console.log(producto2.calcularDescuento(50))
+console.log(producto3.calcularDescuento(40))
 
 const producto: Producto = {
     id: 1,
