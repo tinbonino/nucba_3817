@@ -1,0 +1,5 @@
+
+npm init -y                     ** Inicializamos un proyecto de node
+npm i --save inquirer  ** Instalamos inquirer
+
+
