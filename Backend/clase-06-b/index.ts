@@ -62,6 +62,6 @@ console.table(empleado3);
 console.table(director1);
 console.table(director2);
 
-
+director2.contratar(empleado1);
 
 
