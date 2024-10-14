@@ -24,7 +24,7 @@ export const getStudentByDNI = async (req:Request,res:Response) =>{
     .populate("camada","nombre");
 
     if(!student){
-        res.json(
+        res.status(404).json(
             {
                 msg:"No existe ese DNI en la DB"
             }
