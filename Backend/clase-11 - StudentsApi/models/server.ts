@@ -2,7 +2,7 @@ import express, {Express} from "express";
 import { conectarDB } from "../database/config";
 
 import studentRoutes from "../routes/students"
-
+import camadasRoutes from "../routes/camadas"
 
 export class Server {
 
@@ -26,6 +26,7 @@ export class Server {
 
     routes() :void {
         this.app.use("/students",studentRoutes);
+        this.app.use("/camadas",camadasRoutes);
     }
 
     listen():void {
