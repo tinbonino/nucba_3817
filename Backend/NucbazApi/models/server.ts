@@ -1,6 +1,8 @@
 import express,{ Express } from "express";
 
 import { dbConnection } from "../database/config";
+import authRoutes from "../routes/auth"
+
 // creamos la clae server
 
 export class Server {
@@ -18,9 +20,9 @@ export class Server {
         //método para conectar a la db
         this.conectarDB();
         //método para ejecutar los middlewares
-        // this.middlewares();
+        this.middlewares();
         // // método para cargar las rutas
-        // this.routes();
+        this.routes();
 
     }
 
@@ -34,7 +36,15 @@ export class Server {
 
     //método para ejecutar los middlewares
 
+    middlewares():void {
+        this.app.use(express.json());
+    }
+
     //método para cargar las rutas
+
+    routes(): void {
+        this.app.use("/auth",authRoutes)
+    }
 
     //método para escuchar el puerto correspondiente
 

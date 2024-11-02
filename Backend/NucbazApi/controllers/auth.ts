@@ -8,6 +8,8 @@ import { ROLES } from "../helpers/constants";
 
 import randomstring from "randomstring";
 
+import { sendEmail } from "../mailer/mailer";
+
 export const register = async (req:Request, res:Response): Promise<void> => {
 
     const {nombre,email,password,rol}:IUser=req.body;
@@ -35,6 +37,8 @@ export const register = async (req:Request, res:Response): Promise<void> => {
     usuario.code=newCode;
 
     await usuario.save();
+
+    await sendEmail(email,newCode)
 
     res.status(201).json({
         usuario
