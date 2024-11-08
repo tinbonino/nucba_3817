@@ -1,7 +1,9 @@
 import express,{ Express } from "express";
 
 import { dbConnection } from "../database/config";
-import authRoutes from "../routes/auth"
+import authRoutes from "../routes/auth";
+import orderRoutes from "../routes/orders"
+import cors from "cors"
 
 // creamos la clae server
 
@@ -9,13 +11,15 @@ export class Server {
     app: Express;
     port: string | number | undefined;
     authPath: string;
+    ordersPath:string
 
     // configuramos el constructor para poder crear instancias de la clase. Todo lo que esta dentro del constructor se ejecuta al crear la instancia.
 
     constructor() {
         this.app = express();
         this.port = process.env.PORT;
-        this.authPath = "auth";
+        this.authPath = "/auth";
+        this.ordersPath="/orders"
 
         //método para conectar a la db
         this.conectarDB();
@@ -37,13 +41,15 @@ export class Server {
     //método para ejecutar los middlewares
 
     middlewares():void {
+        this.app.use(cors());
         this.app.use(express.json());
     }
 
     //método para cargar las rutas
 
     routes(): void {
-        this.app.use("/auth",authRoutes)
+        this.app.use(this.authPath,authRoutes);
+        this.app.use(this.ordersPath,orderRoutes);
     }
 
     //método para escuchar el puerto correspondiente
